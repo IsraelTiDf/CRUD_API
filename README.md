@@ -17,6 +17,7 @@ Com integraçao de pagamento com a CIELO API.
 Laravel
 React
 Material ui
+Swagger
 
 ## Avisos
 
