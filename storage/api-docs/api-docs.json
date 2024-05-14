@@ -1,0 +1,391 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My OpenApi Documentation",
+        "description": "My OpenApi description",
+        "contact": {
+            "email": "israelti.df@gmail.com"
+        },
+        "license": {
+            "name": "Proprietary",
+            "url": ""
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://testproject.test",
+            "description": "My API Server"
+        }
+    ],
+    "paths": {
+        "/api/projetos": {
+            "get": {
+                "tags": [
+                    "Projetos"
+                ],
+                "summary": "Get list of projects",
+                "description": "Returns list of projects",
+                "operationId": "getProjetos",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Projetos"
+                ],
+                "summary": "Create a new project",
+                "description": "Create a new project entry in the database by providing the required information.",
+                "operationId": "f4dc798006d98204e87ad75c81627217",
+                "requestBody": {
+                    "description": "Project data to be stored",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ProjectRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation. Returns the newly created project data.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProjectRequest"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request or validation error.",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "error": "Validation error message"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/projetos/{id}": {
+            "get": {
+                "tags": [
+                    "Projetos"
+                ],
+                "summary": "Get a project by ID",
+                "description": "Retrieve the project details by providing its ID.",
+                "operationId": "352e9ff2c2a8d955e86a9823325f140b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the project to be retrieved",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation. Returns the project data.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProjectRequest"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Project not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "error": "Project not found"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Projetos"
+                ],
+                "summary": "Update a project by ID",
+                "description": "Update the information of a project by providing its ID.",
+                "operationId": "d001717f88199d9daec35dae78e35be6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the project to be updated",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Updated project data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ProjectRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation. Returns the updated project data.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProjectRequest"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Project not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "error": "Project not found"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Projetos"
+                ],
+                "summary": "Delete a project by ID",
+                "description": "Delete a project from the database by providing its ID.",
+                "operationId": "ee147b43cd688671ec68a49bc764e437",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the project to be deleted",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation. No content."
+                    },
+                    "404": {
+                        "description": "Project not found.",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "error": "Project not found"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ProjectRequest": {
+                "title": "ProjectRequest",
+                "description": "Schema de requisição para Projeto",
+                "required": [
+                    "pronac",
+                    "ano_projeto",
+                    "nome",
+                    "segmento",
+                    "area",
+                    "uf",
+                    "municipio",
+                    "data_inicio",
+                    "data_termino",
+                    "situacao",
+                    "mecanismo",
+                    "enquadramento",
+                    "valor_captado",
+                    "valor_aprovado",
+                    "acessibilidade",
+                    "ficha_tecnica",
+                    "impacto_ambiental",
+                    "especificacao_tecnica",
+                    "democratizacao",
+                    "sinopse",
+                    "valor_projeto",
+                    "outras_fontes",
+                    "valor_proposta",
+                    "valor_solicitado",
+                    "objetivo",
+                    "estrategia_execucao",
+                    "link_incentivadores"
+                ],
+                "properties": {
+                    "pronac": {
+                        "description": "Pronac do projeto",
+                        "type": "string",
+                        "example": "123456"
+                    },
+                    "ano_projeto": {
+                        "description": "Ano do projeto",
+                        "type": "string",
+                        "example": "2024"
+                    },
+                    "nome": {
+                        "description": "Nome do projeto",
+                        "type": "string",
+                        "example": "Projeto X"
+                    },
+                    "segmento": {
+                        "description": "Segmento do projeto",
+                        "type": "string",
+                        "example": "Segmento X"
+                    },
+                    "area": {
+                        "description": "Área do projeto",
+                        "type": "string",
+                        "example": "Área X"
+                    },
+                    "uf": {
+                        "description": "UF do projeto",
+                        "type": "string",
+                        "example": "UF X"
+                    },
+                    "municipio": {
+                        "description": "Município do projeto",
+                        "type": "string",
+                        "example": "Município X"
+                    },
+                    "data_inicio": {
+                        "description": "Data de início do projeto",
+                        "type": "string",
+                        "example": "2024-01-01"
+                    },
+                    "data_termino": {
+                        "description": "Data de término do projeto",
+                        "type": "string",
+                        "example": "2024-12-31"
+                    },
+                    "situacao": {
+                        "description": "Situação do projeto",
+                        "type": "string",
+                        "example": "Situação X"
+                    },
+                    "mecanismo": {
+                        "description": "Mecanismo do projeto",
+                        "type": "string",
+                        "example": "Mecanismo X"
+                    },
+                    "enquadramento": {
+                        "description": "Enquadramento do projeto",
+                        "type": "string",
+                        "example": "Enquadramento X"
+                    },
+                    "valor_captado": {
+                        "description": "Valor captado do projeto",
+                        "type": "string",
+                        "example": "100000"
+                    },
+                    "valor_aprovado": {
+                        "description": "Valor aprovado do projeto",
+                        "type": "string",
+                        "example": "100000"
+                    },
+                    "acessibilidade": {
+                        "description": "Acessibilidade do projeto",
+                        "type": "string",
+                        "example": "Acessibilidade X"
+                    },
+                    "ficha_tecnica": {
+                        "description": "Ficha técnica do projeto",
+                        "type": "string",
+                        "example": "Ficha Técnica X"
+                    },
+                    "impacto_ambiental": {
+                        "description": "Impacto ambiental do projeto",
+                        "type": "string",
+                        "example": "Impacto Ambiental X"
+                    },
+                    "especificacao_tecnica": {
+                        "description": "Especificação técnica do projeto",
+                        "type": "string",
+                        "example": "Especificação Técnica X"
+                    },
+                    "democratizacao": {
+                        "description": "Democratização do projeto",
+                        "type": "string",
+                        "example": "Democratização X"
+                    },
+                    "sinopse": {
+                        "description": "Sinopse do projeto",
+                        "type": "string",
+                        "example": "Sinopse X"
+                    },
+                    "valor_projeto": {
+                        "description": "Valor do projeto",
+                        "type": "string",
+                        "example": "100000"
+                    },
+                    "outras_fontes": {
+                        "description": "Outras fontes do projeto",
+                        "type": "string",
+                        "example": "Outras Fontes X"
+                    },
+                    "valor_proposta": {
+                        "description": "Valor proposto do projeto",
+                        "type": "string",
+                        "example": "100000"
+                    },
+                    "valor_solicitado": {
+                        "description": "Valor solicitado do projeto",
+                        "type": "string",
+                        "example": "100000"
+                    },
+                    "objetivo": {
+                        "description": "Objetivo do projeto",
+                        "type": "string",
+                        "example": "Objetivo X"
+                    },
+                    "estrategia_execucao": {
+                        "description": "Estratégia de execução do projeto",
+                        "type": "string",
+                        "example": "Estratégia de Execução X"
+                    },
+                    "link_incentivadores": {
+                        "description": "Link de incentivadores do projeto",
+                        "type": "string",
+                        "example": "https://incentivadores.com/projeto-x"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+
+}
