@@ -1,16 +1,31 @@
+## Principais Ferramentas
+
+- Laravel
+- React
+- Material ui
+- Swagger
+
 ## Comandos para rodar o sistema
 
 - composer install
 - php artisan migrate --seed
 - npm install
-- npm run dev
+- npm run build | npm run dev
 
-## Principais Ferramentas
+## se for executar o docker
+- docker-compose up -d
+``
+http://localhost:8000
+``
 
-Laravel
-React
-Material ui
-Swagger
+## Documentação API
+``
+url/api/documentation ex: http://localhost:8000/api/documentation
+``
 
-## Avisos
+## Preview da API
+
+![App Screenshot](docs/img/preview.png)
+
+
 

@@ -21,10 +21,6 @@ use App\Models\Projeto;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-        'produtos' => Projeto::all(),
+        'projetos' => Projeto::all(),
     ]);
 });
