@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Database\Seeders\{ProjetoSeeder,LoginSeeder};
+use Database\Seeders\{ProjetoSeeder};
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,8 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            ProjetoSeeder::class,
-            LoginSeeder::class,
+            ProjetoSeeder::class
         ]);
     }
 }

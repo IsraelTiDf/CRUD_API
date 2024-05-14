@@ -14,7 +14,7 @@
     },
     "servers": [
         {
-            "url": "http://testproject.test",
+            "url": "http://localhost:8000",
             "description": "My API Server"
         }
     ],

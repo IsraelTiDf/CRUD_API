@@ -68,7 +68,7 @@ export default function Welcome({ auth, produtos }) {
 
   return (
     <>
-      <Head title="Restaurante Japonês" />
+      <Head title="Teste" />
       <div className="bg-gray-100 dark:bg-gray-900 min-h-screen">
         {/* Cabeçalho */}
         <AppBar position="static" color="primary">

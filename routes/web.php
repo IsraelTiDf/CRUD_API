@@ -1,14 +1,11 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PedidoController;
+
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Models\Produto;
 use App\Models\Projeto;
-use App\Models\Pedido;
-use Illuminate\Support\Facades\DB;
+
 
 
 /*
