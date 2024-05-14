@@ -21,7 +21,5 @@ Material ui
 ## Avisos
 
 - .env Colar um banco local
-Login para acessar a cozinha
-- Email: cozinha@gmail.com
-- Senha: 12345678
+
 
