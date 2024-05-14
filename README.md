@@ -20,6 +20,3 @@ Material ui
 
 ## Avisos
 
-- .env Colar um banco local
-
-
